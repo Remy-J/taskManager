@@ -1,0 +1,23 @@
+This is a todo list application that displays a dashboard with user statistics.
+
+The application has two pages: the todo list and the dashboard.
+
+We use Vue 3 with script setup and TypeScript, Tailwind.
+In Vue, components are structured in this order: template > script > styles
+
+Whenever following new instructions, add or update concise documentation about the app.
+
+You should place:
+- components under /src/components
+- composables under /src/composables
+- views under /src/views
+- stores under /src/stores
+- tests for composables under /src/composables/__test__
+- types should be named *.model.ts
+
+Guidelines:
+- Doc: Add JSDoc above functions, types etc. to document them. 
+In types, prefer documenting above each variable name with a shorter format (ex. one line /** ... */ instead of multiline)
+- Functions: NEVER define arrow functions (const fnName = ...) unless they are absolutely necessary.
+- Composables: Extract component logic into composables wherever appropriate.
+- Tests: Always create or update tests for code that can be tested
