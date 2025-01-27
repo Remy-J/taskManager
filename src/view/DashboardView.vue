@@ -4,7 +4,7 @@
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
       <Card>
         <template #title>Task Status Overview</template>
-        <Chart type="pie" :data="pieChartData" />
+        <HighChart type="pie" :data="pieChartData" />
         <template #footer>
           <div class="text-sm text-gray-500">
             Total tasks: {{ tasksLength }}
@@ -18,7 +18,7 @@
             <h2 class="text-xl font-semibold text-gray-800">Tasks Creation</h2>
           </div>
         </template>
-        <Chart type="bar" :data="barChartCreationData" />
+        <HighChart type="column" :data="barChartCreationData" />
         <template #footer>
           <div class="text-sm text-gray-500">
             Total tasks created: {{ tasksLength }}
@@ -28,7 +28,7 @@
 
       <Card>
         <template #title>Completion Trends</template>
-        <Chart type="bar" :data="barChartCompletedData" />
+        <HighChart type="bar" :data="barChartCompletedData" />
         <template #footer>
           <div class="flex justify-between text-sm text-gray-500">
             <span>Completed: {{ completedTasksLength }}</span>
@@ -54,7 +54,7 @@
 
 import { computed } from 'vue'
 import { useTodoStore } from '../stores/todosStore'
-import Chart from '../components/Chart.vue';
+import HighChart from '../components/HighChart.vue';
 import Card from '../components/Card.vue';
 
 const todoStore = useTodoStore()

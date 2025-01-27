@@ -10,7 +10,7 @@ Whenever following new instructions, add or update concise documentation about t
 You should place:
 - components under /src/components
 - composables under /src/composables
-- views under /src/views
+- view under /src/view
 - stores under /src/stores
 - tests for composables under /src/composables/__test__
 - types should be named *.model.ts

@@ -108,7 +108,6 @@ function getChartOptions(): Highcharts.Options {
         }
     }
 
-    // Pour les graphiques column et line
     return {
         ...baseOption,
         xAxis: {
