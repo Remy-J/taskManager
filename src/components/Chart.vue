@@ -10,14 +10,6 @@
  * @component
  * @description A flexible chart component that can display data in different formats (pie, bar, line)
  * 
- * @example
- * ```vue
- * <Chart 
- *   type="bar"
- *   :data="[{ name: 'Category 1', value: 10 }]"
- *   title="My Chart"
- * />
- * ```
  */
 import { computed } from 'vue'
 import VChart from 'vue-echarts'
