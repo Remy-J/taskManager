@@ -36,14 +36,6 @@
  * Individual todo item component
  * @component
  * @description Displays a single todo item with completion toggle, deletion, and tooltip functionality
- * 
- * @example
- * ```vue
- * <TodoItem 
- *   :todo="{ id: 1, title: 'Task', completed: false, completedAt: null }"
- *   @delete="handleDelete"
- * />
- * ```
  */
 import { computed, ref, onMounted, onUnmounted } from 'vue'
 import { useTodoStore } from '../stores/todosStore';
@@ -64,10 +56,8 @@ interface Props {
     }
 }
 
-/** @type {Ref<boolean>} Controls tooltip visibility */
 const showFullText = ref(false)
 
-/** @type {Function} Emits delete event with todo ID */
 const emit = defineEmits<{
     delete: [id: number]
 }>();

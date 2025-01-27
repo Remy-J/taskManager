@@ -28,12 +28,8 @@
 <script setup lang="ts">
 /**
  * Todo list component with virtual scrolling
- * @component
  * @description Displays a list of todos with virtual scrolling for performance optimization
- * @example
- * ```vue
- * <TodoList />
- * ```
+ *
  * @requires useVirtualList
  * @requires useTodoStore
  */
@@ -43,20 +39,11 @@ import TodoItem from './TodoItem.vue'
 import { useVirtualList } from '../composables/useVirtualList'
 
 const todoStore = useTodoStore()
-/** @type {Ref<string>} Input value for new todo */
+
 const newTodo = ref<string>('');
 
-/** @type {ComputedRef<Array>} Computed list of todos from store */
 const todos = computed(() => todoStore.todos)
 
-/**
- * Virtual list configuration and state
- * @type {Object} Virtual list instance
- * @property {Ref<HTMLElement>} containerRef - Reference to the container element
- * @property {ComputedRef<Array>} visibleItems - Currently visible items
- * @property {ComputedRef<number>} totalHeight - Total scrollable height
- * @property {Function} handleScroll - Scroll event handler
- */
 const {
     containerRef,
     visibleItems,
@@ -69,7 +56,6 @@ const {
 
 /**
  * Handles new task submission
- * @function
  * @description Creates a new todo if the input is not empty
  */
 function handleSubmit() {
@@ -83,7 +69,6 @@ function handleSubmit() {
 
 /**
  * Handles task deletion
- * @function
  * @param {number} id - ID of the task to delete
  */
 function handleDelete(id: number) {

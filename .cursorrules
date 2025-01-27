@@ -21,3 +21,4 @@ In types, prefer documenting above each variable name with a shorter format (ex.
 - Functions: NEVER define arrow functions (const fnName = ...) unless they are absolutely necessary.
 - Composables: Extract component logic into composables wherever appropriate.
 - Tests: Always create or update tests for code that can be tested
+- Style: use only tailwind classes, no inline styles

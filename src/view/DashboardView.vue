@@ -7,7 +7,7 @@
         <Chart type="pie" :data="pieChartData" />
         <template #footer>
           <div class="text-sm text-gray-500">
-            Total tasks: {{ todoList.length }}
+            Total tasks: {{ tasksLength }}
           </div>
         </template>
       </Card>
@@ -21,7 +21,7 @@
         <Chart type="bar" :data="barChartCreationData" />
         <template #footer>
           <div class="text-sm text-gray-500">
-            Total tasks created: {{ todoList.length }}
+            Total tasks created: {{ tasksLength }}
           </div>
         </template>
       </Card>
@@ -31,8 +31,8 @@
         <Chart type="bar" :data="barChartCompletedData" />
         <template #footer>
           <div class="flex justify-between text-sm text-gray-500">
-            <span>Completed: {{ todoList.filter(t => t.completed).length }}</span>
-            <span>Pending: {{ todoList.filter(t => !t.completed).length }}</span>
+            <span>Completed: {{ completedTasksLength }}</span>
+            <span>Pending: {{ inProgressTasksLength }}</span>
           </div>
         </template>
       </Card>
@@ -102,5 +102,11 @@ const barChartCompletedData = computed(() => {
     .sort((a, b) => a.sortDate.localeCompare(b.sortDate))
     .map(({ name, value }) => ({ name, value }))
 })
+
+const tasksLength = computed(() => todoList.value.length)
+
+const completedTasksLength = computed(() => todoList.value.filter(t => t.completed).length)
+
+const inProgressTasksLength = computed(() => todoList.value.filter(t => !t.completed).length)
 
 </script>
