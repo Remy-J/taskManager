@@ -14,11 +14,16 @@
 
       <Card>
         <template #header>
-          <div class="flex justify-between items-center">
-            <h2 class="text-xl font-semibold text-gray-800">Tasks Creation</h2>
+          <div class="flex justify-between items-center mb-4">
+            <h2 class="text-xl font-semibold text-slate-800">Tasks Creation</h2>
+            <select v-model="selectedChartType" class="px-3 py-1.5 text-sm border border-slate-200 rounded-lg bg-white text-slate-600 
+                   focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 outline-none
+                   cursor-pointer hover:bg-slate-50 transition-colors">
+              <option v-for="{ value, label } in chartTypes" :key="value" :value="value">{{ label }}</option>
+            </select>
           </div>
         </template>
-        <HighChart type="column" :data="barChartCreationData" />
+        <HighChart :type="selectedChartType" :data="barChartCreationData" />
         <template #footer>
           <div class="text-sm text-gray-500">
             Total tasks created: {{ tasksLength }}
@@ -52,12 +57,21 @@
  * - Task completion timeline (bar chart)
  */
 
-import { computed } from 'vue'
+import { computed, ref } from 'vue'
 import { useTodoStore } from '../stores/todosStore'
 import HighChart from '../components/HighChart.vue';
 import Card from '../components/Card.vue';
 
 const todoStore = useTodoStore()
+
+
+const chartTypes = [
+  { value: 'column', label: 'Column Chart' },
+  { value: 'bar', label: 'Bar Chart' },
+  { value: 'line', label: 'Line Chart' }
+] as const
+
+const selectedChartType = ref<'column' | 'bar' | 'line'>('column')
 
 const todoList = computed(() => todoStore.todos)
 

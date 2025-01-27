@@ -27,7 +27,7 @@ const props = defineProps({
     type: {
         type: String,
         default: 'column',
-        validator: (value: string) => ['column', 'line', 'pie'].includes(value)
+        validator: (value: string) => ['column', 'bar', 'line', 'pie'].includes(value)
     },
     data: {
         type: Array as () => ChartData[],
@@ -47,6 +47,9 @@ function getChartOptions(): Highcharts.Options {
             type: props.type as any,
             renderTo: chartContainer.value,
             height: '100%'
+        },
+        accessibility: {
+            enabled: false
         },
         title: {
             text: props.title,
